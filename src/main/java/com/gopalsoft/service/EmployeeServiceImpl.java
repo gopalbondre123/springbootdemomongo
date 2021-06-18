@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gopalsoft.entity.Employee;
 import com.gopalsoft.repository.EmployeeRepository;
 
 @Service
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService{
 	
 	@Autowired
@@ -24,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public String saveEmployee(Employee e) {
 		System.out.println(e);		
-		String empId=employeeRepository.save(e).getId();
+		String empId=employeeRepository.insert(e).getId();
 		return empId;
 	}
 
@@ -43,6 +45,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public void deleteOneEmployee(String empId) {
 		Employee emp=getOneEmployee(empId);
 		employeeRepository.delete(emp);
+	}
+
+	@Override
+	public void updateOneEmployee(Employee emp) {
+		employeeRepository.save(emp);//insert or update
+		
 	}
 
 }

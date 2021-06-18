@@ -8,11 +8,11 @@ public interface EmployeeService {
 
 	List<Employee> getEmployees();
 	
-	String saveEmployee(Employee e);
-
-
 	Employee getOneEmployee(String empId);
-
+	
+	String saveEmployee(Employee e);//insert new
+	
+    void updateOneEmployee(Employee e);
 	
 	void deleteOneEmployee(String empId);
 

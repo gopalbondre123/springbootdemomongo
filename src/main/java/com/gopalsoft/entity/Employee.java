@@ -23,6 +23,14 @@ public class Employee {
 		this.email = email;
 	}
 	
+
+	public Employee( String name, String email) {
+		super();
+		
+		this.name = name;
+		this.email = email;
+	}
+	
 	public Employee() {
 		super();
 		
